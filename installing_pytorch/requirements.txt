@@ -4,6 +4,10 @@ jupyter
 matplotlib
 numpy
 tqdm
-torch
-torchvision
+torch == 1.13.1+cu117
+torchvision == 0.14.1+cu117
+-f https://download.pytorch.org/whl/torch_stable.html
 cuda-python
+nvidia-pyindex
+--extra-index-url https://pypi.ngc.nvidia.com
+nvidia-cuda-runtime-cu12
