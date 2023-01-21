@@ -1,0 +1,9 @@
+h5py
+imageio
+jupyter
+matplotlib
+numpy
+tqdm
+torch
+torchvision
+cuda-python
