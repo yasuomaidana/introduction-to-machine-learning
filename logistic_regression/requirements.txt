@@ -10,3 +10,5 @@ cuda-python
 nvidia-pyindex
 --extra-index-url https://pypi.ngc.nvidia.com
 nvidia-cuda-runtime-cu12
+jupyter
+notebook
