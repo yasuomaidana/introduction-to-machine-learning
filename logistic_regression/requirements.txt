@@ -12,3 +12,4 @@ nvidia-pyindex
 nvidia-cuda-runtime-cu12
 jupyter
 notebook
+h5py
