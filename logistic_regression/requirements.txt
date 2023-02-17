@@ -5,6 +5,8 @@ numpy
 tqdm
 torch == 1.13.1+cu117
 torchvision == 0.14.1+cu117
+torchtext
+torchdata
 -f https://download.pytorch.org/whl/torch_stable.html
 cuda-python
 nvidia-pyindex
