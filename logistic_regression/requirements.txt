@@ -16,3 +16,4 @@ jupyter
 notebook
 h5py
 gym
+pygame
