@@ -1,1 +1,6 @@
 kaggle
+pandas
+matplotlib
+numpy
+ipykernel
+seaborn
