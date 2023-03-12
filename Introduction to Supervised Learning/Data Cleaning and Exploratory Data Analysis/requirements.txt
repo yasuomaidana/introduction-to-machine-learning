@@ -1,1 +1,4 @@
-opendatasets
+ipykernel
+pandas
+matplotlib
+numpy
