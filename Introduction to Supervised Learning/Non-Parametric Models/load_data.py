@@ -5,7 +5,9 @@ import os
 
 mnist = "mnist_784"
 csv_path = "data/{}.csv".format(mnist)
+print("Loading data")
 if not os.path.exists(csv_path):
+    print("Downloading")
     URL = "https://www.openml.org/data/download/52667/mnist_784.arff"
     response = requests.get(URL)
     arff_path = "data/{}.arff".format(mnist)
@@ -15,4 +17,5 @@ if not os.path.exists(csv_path):
     data = data.astype(int)
     data.to_csv(csv_path,index=False)
     os.remove(arff_path)
+print("Loaded")
 
