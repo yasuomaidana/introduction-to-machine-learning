@@ -1,0 +1,9 @@
+ipykernel
+numpy
+pandas
+matplotlib
+scipy
+scikit-learn
+requests
+pytest
+tqdm
