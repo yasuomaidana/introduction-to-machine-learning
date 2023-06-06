@@ -1,2 +1,5 @@
 numpy
 ipynb
+pandas
+matplotlib
+pytest
