@@ -13,10 +13,14 @@ def unzip_all_files(directory):
                     zip_ref.extractall(unzip_directory)
                 for extracted_root, extracted_dirs, extracted_files in os.walk(unzip_directory):
                     for extracted_file in extracted_files:
-                        shutil.move(os.path.join(extracted_root, extracted_file), os.path.join(root, extracted_file))
-                    shutil.rmtree(extracted_root)
+                        shutil.move(os.path.join(extracted_root, extracted_file),
+                                    os.path.join(directory, extracted_file))
+                shutil.rmtree(unzip_directory)
 
 
-# Example usage
-directory_to_unzip = 'data/'
-unzip_all_files(directory_to_unzip)
+if len(list(filter(lambda x: ".pkl" in x, os.listdir('data/')))) < 3:
+    print("Unzipping data")
+    directory_to_unzip = 'data/'
+    unzip_all_files(directory_to_unzip)
+
+print("Data loaded")
