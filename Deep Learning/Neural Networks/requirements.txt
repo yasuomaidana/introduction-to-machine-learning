@@ -1,2 +1,6 @@
 numpy
 ipynb
+pandas
+matplotlib
+pytest
+scikit-learn
