@@ -1,0 +1,7 @@
+ipynb
+ipykernel
+tensorflow
+# pandas
+# matplotlib
+# pytest
+# scikit-learn
