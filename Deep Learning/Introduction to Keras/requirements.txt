@@ -1,7 +1,7 @@
 ipynb
 ipykernel
 tensorflow
+matplotlib
 # pandas
-# matplotlib
 # pytest
 # scikit-learn
