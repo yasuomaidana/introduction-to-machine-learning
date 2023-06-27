@@ -2,4 +2,4 @@ ipynb
 ipykernel
 matplotlib
 pytest
-# scikit-learn
+scikit-learn
