@@ -3,3 +3,4 @@ ipykernel
 matplotlib
 pytest
 scikit-learn
+kaggle
