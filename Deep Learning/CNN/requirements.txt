@@ -4,3 +4,5 @@ matplotlib
 pytest
 scikit-learn
 kaggle
+tensorflow
+pandas
