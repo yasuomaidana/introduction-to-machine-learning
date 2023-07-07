@@ -6,3 +6,6 @@ scikit-learn
 kaggle
 tensorflow
 pandas
+opencv-python
+numpy
+imageio

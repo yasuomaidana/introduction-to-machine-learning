@@ -18,7 +18,6 @@ def download():
 
 
 if os.path.exists("data/"):
-    print("exists")
     csv_files = len([f for f in os.listdir("data/") if f.endswith(".csv")])
     if csv_files < 2:
         download()
