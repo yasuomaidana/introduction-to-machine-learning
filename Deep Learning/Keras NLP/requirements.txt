@@ -7,3 +7,5 @@ tensorflow
 pandas
 numpy
 tqdm
+pydot
+graphviz
