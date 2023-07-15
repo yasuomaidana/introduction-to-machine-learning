@@ -1,0 +1,11 @@
+ipynb
+ipykernel
+matplotlib
+scikit-learn
+kaggle
+tensorflow
+pandas
+numpy
+tqdm
+pydot
+graphviz

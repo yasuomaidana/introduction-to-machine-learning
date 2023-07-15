@@ -1,0 +1,6 @@
+data/
+*.png
+*.pkl
+*.json
+*.h5
+*.csv
