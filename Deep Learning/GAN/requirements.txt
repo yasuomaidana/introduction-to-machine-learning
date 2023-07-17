@@ -1,6 +1,6 @@
 ipynb
 ipykernel
-# matplotlib
+matplotlib
 # pytest
 scikit-learn
 kaggle
@@ -10,3 +10,5 @@ pandas
 numpy
 # imageio
 # tqdm
+tensorflow
+tensorflow-addons
