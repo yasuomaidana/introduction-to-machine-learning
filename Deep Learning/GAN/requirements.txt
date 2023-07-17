@@ -1,0 +1,14 @@
+ipynb
+ipykernel
+matplotlib
+# pytest
+scikit-learn
+kaggle
+tensorflow
+pandas
+# opencv-python
+numpy
+# imageio
+# tqdm
+tensorflow
+tensorflow-addons
