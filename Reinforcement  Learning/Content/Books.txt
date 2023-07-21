@@ -1,0 +1,4 @@
+http://www.incompleteideas.net/book/RLbook2020-1.pdf
+Reinforcement Learning: An Introduction
+second edition
+Richard S. Sutton and Andrew G. Barto
