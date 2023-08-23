@@ -2,3 +2,7 @@ http://www.incompleteideas.net/book/RLbook2020-1.pdf
 Reinforcement Learning: An Introduction
 second edition
 Richard S. Sutton and Andrew G. Barto
+
+
+https://github.com/enjeeneer/sutton_and_barto
+https://enjeeneer.io/posts/2021/04/notes-exercises-and-code-for-sutton-and-bartos-reinforcement-learning-an-introduction-2018/
