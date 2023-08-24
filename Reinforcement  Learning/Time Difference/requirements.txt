@@ -2,3 +2,4 @@ ipykernel
 jdc
 numpy
 tqdm
+matplotlib
