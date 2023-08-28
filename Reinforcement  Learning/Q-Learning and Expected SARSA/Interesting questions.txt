@@ -1,0 +1,26 @@
+What is the target policy in Q-learning?
+Greedy with respect to the current action-values estimates.
+
+Which Bellman Equation is the basis for the Q-Learning update?
+Bellman optimality equation for action values
+
+Which Bellman Equation is the basis for the Sarsa update?
+Bellman equation for action values
+
+Which Bellman Equation is the basis for the Expected Sarsa update?
+Bellman equation for action values
+
+Which algorithm's update requires more computation per step?
+Expected Sarsa
+
+Which algorithm has a higher variance target?
+Sarsa
+
+Q-learning does not learn about the outcome of exploratory actions?
+True
+
+Sarsa, Q-Learning, and Expected Sarsa have similar targets to a terminal state.
+True
+
+Sarsa needs to wait until the end of an episode before performing its update.
+False
