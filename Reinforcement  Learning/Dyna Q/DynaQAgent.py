@@ -99,3 +99,39 @@ class DynaQAgent(BaseAgent, metaclass=ABCMeta):
         model_sa[past_action] = state, reward
         self.model[past_state] = model_sa
         # ----------------
+
+    def planning_step(self):
+        """performs planning, i.e. indirect RL.
+
+        Args:
+
+        Returns:
+            Nothing
+        """
+
+        # The indirect RL step:
+        # - Choose a state and action from the set of experiences that are stored in the model. (~2 lines)
+        # - Query the model with this state-action pair for the predicted next state and reward.(~1 line)
+        # - Update the action values with this simulated experience.                            (2~4 lines)
+        # - Repeat for the required number of planning steps.
+        #
+        # Note that the update equation is different for terminal and non-terminal transitions.
+        # To differentiate between a terminal and a non-terminal next state, assume that the model stores
+        # the terminal state as a dummy state like -1
+        #
+        # Important: remember you have a random number generator 'planning_rand_generator' as
+        #     a part of the class which you need to use as self.planning_rand_generator.choice()
+        #     For the sake of reproducibility and grading, *do not* use anything else like
+        #     np.random.choice() for performing search control.
+
+        # ----------------
+        # your code here
+        for _ in range(self.planning_steps):
+            s = self.planning_rand_generator.choice(list(self.model.keys()))
+            a = self.planning_rand_generator.choice(list(self.model[s].keys()))
+            next_s, reward = self.model[s][a]
+            self.q_values[s, a] += (self.step_size *
+                                    (reward
+                                     + self.gamma * (np.max(self.q_values[next_s, :]) if next_s != -1 else 0)
+                                     - self.q_values[s, a]))
+        # ----------------
