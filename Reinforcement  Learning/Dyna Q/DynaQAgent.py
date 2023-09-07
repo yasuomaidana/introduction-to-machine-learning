@@ -135,3 +135,124 @@ class DynaQAgent(BaseAgent, metaclass=ABCMeta):
                                      + self.gamma * (np.max(self.q_values[next_s, :]) if next_s != -1 else 0)
                                      - self.q_values[s, a]))
         # ----------------
+
+    def argmax(self, q_values):
+        """argmax with random tie-breaking
+        Args:
+            q_values (Numpy array): the array of action values
+        Returns:
+            action (int): an action with the highest value
+        """
+        top = float("-inf")
+        ties = []
+
+        for i in range(len(q_values)):
+            if q_values[i] > top:
+                top = q_values[i]
+                ties = []
+
+            if q_values[i] == top:
+                ties.append(i)
+
+        return self.rand_generator.choice(ties)
+
+    def choose_action_egreedy(self, state):
+        """returns an action using an epsilon-greedy policy w.r.t. the current action-value function.
+
+        Important: assume you have a random number generator 'rand_generator' as a part of the class
+                    which you can use as self.rand_generator.choice() or self.rand_generator.rand()
+
+        Args:
+            state (List): coordinates of the agent (two elements)
+        Returns:
+            The action taken w.r.t. the aforementioned epsilon-greedy policy
+        """
+
+        if self.rand_generator.rand() < self.epsilon:
+            action = self.rand_generator.choice(self.actions)
+        else:
+            values = self.q_values[state]
+            action = self.argmax(values)
+
+        return action
+
+    def agent_start(self, state):
+        """The first method called when the experiment starts,
+        called after the environment starts.
+        Args:
+            state (Numpy array): the state from the
+                environment's env_start function.
+        Returns:
+            (int) the first action the agent takes.
+        """
+
+        # given the state, select the action using self.choose_action_egreedy()),
+        # and save current state and action (~2 lines)
+        ### self.past_state = ?
+        ### self.past_action = ?
+
+        # ----------------
+        # your code here
+        self.past_state = state
+        self.past_action = self.choose_action_egreedy(state)
+        # ----------------
+
+        return self.past_action
+
+    def agent_step(self, reward, state):
+        """A step taken by the agent.
+
+        Args:
+            reward (float): the reward received for taking the last action taken
+            state (Numpy array): the state from the
+                environment's step based on where the agent ended up after the
+                last step
+        Returns:
+            (int) The action the agent takes given this state.
+        """
+
+        # - Direct-RL step (~1-3 lines)
+        # - Model Update step (~1 line)
+        # - `planning_step` (~1 line)
+        # - Action Selection step (~1 line)
+        # Save the current state and action before returning the action to be performed. (~2 lines)
+
+        # ----------------
+        # your code here
+        self.q_values[self.past_state, self.past_action] += (self.step_size *
+                                                             (reward
+                                                              + self.gamma * (
+                                                                  np.max(self.q_values[state, :]) if state != -1 else 0)
+                                                              - self.q_values[self.past_state, self.past_action]))
+        self.update_model(self.past_state, self.past_action, state, reward)
+        self.planning_step()
+        self.past_state = state
+        self.past_action = self.choose_action_egreedy(state)
+        # ----------------
+
+        return self.past_action
+
+    def agent_end(self, reward):
+        """Called when the agent terminates.
+
+        Args:
+            reward (float): the reward the agent received for entering the
+                terminal state.
+        """
+
+        # - Direct RL update with this final transition (1~2 lines)
+        # - Model Update step with this final transition (~1 line)
+        # - One final `planning_step` (~1 line)
+        #
+        # Note: the final transition needs to be handled carefully. Since there is no next state,
+        #       you will have to pass a dummy state (like -1), which you will be using in the planning_step() to
+        #       differentiate between updates with usual terminal and non-terminal transitions.
+
+        # ----------------
+        # your code here
+        self.q_values[self.past_state, self.past_action] += (self.step_size *
+                                                             (reward
+                                                              - self.q_values[self.past_state, self.past_action]))
+        self.update_model(self.past_state, self.past_action, -1, reward)
+        self.planning_step()
+        # ----------------
