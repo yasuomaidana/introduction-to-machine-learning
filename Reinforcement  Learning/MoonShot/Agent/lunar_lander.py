@@ -13,7 +13,7 @@ class LunarLanderEnvironment(BaseEnvironment):
         Setup for the environment called when the experiment first starts.
         """
         self.env = gym.make("LunarLander-v2")
-        self.env.seed(0)
+        self.env.reset(seed=0)
 
     def env_start(self):
         """
@@ -25,7 +25,7 @@ class LunarLanderEnvironment(BaseEnvironment):
         """        
         
         reward = 0.0
-        observation = self.env.reset()
+        observation = self.env.step(self.env.action_space.sample())
         is_terminal = False
                 
         self.reward_obs_term = (reward, observation, is_terminal)

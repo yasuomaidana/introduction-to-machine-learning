@@ -3,3 +3,6 @@ numpy
 matplotlib
 tqdm
 gym
+box2d
+pygame
+swig
