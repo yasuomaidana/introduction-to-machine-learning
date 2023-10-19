@@ -25,7 +25,7 @@ class LunarLanderEnvironment(BaseEnvironment):
         """        
         
         reward = 0.0
-        observation = self.env.step(self.env.action_space.sample())
+        observation = self.env.reset()
         is_terminal = False
                 
         self.reward_obs_term = (reward, observation, is_terminal)
@@ -45,7 +45,7 @@ class LunarLanderEnvironment(BaseEnvironment):
         """
 
         last_state = self.reward_obs_term[1]
-        current_state, reward, is_terminal, _ = self.env.step(action)
+        current_state, reward, is_terminal, _, _ = self.env.step(action)
         
         self.reward_obs_term = (reward, current_state, is_terminal)
         

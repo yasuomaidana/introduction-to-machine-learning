@@ -7,3 +7,5 @@ class TestLunarLanderEnvironment(TestCase):
     def test_env_init(self):
         lunar_lander_env = LunarLanderEnvironment()
         lunar_lander_env.env_init()
+
+        print(lunar_lander_env.env.reset())
