@@ -8,6 +8,8 @@ class DoubleConv(Module):
         self.conv_op = Sequential(
             Conv2d(in_channels, out_channels, kernel_size=3, padding=1),
             ReLU(inplace=True),
+            Conv2d(out_channels, out_channels, kernel_size=3, padding=1),
+            ReLU(inplace=True),
         )
 
     def forward(self, x):
@@ -22,7 +24,7 @@ class DownSample(Module):
 
     def forward(self, x):
         down = self.conv(x)
-        p = self.pool(x)
+        p = self.pool(down)
         return down, p
 
 
@@ -34,5 +36,5 @@ class UpSample(Module):
 
     def forward(self, x1, x2):
         x1 = self.up(x1)
-        x = cat((x2, x1), 1)
+        x = cat([x1, x2], 1)
         return self.conv(x)
