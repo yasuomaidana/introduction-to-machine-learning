@@ -36,6 +36,9 @@ class CaravanDataset(Dataset):
         mask = Image.open(mask).convert("L")
         return self.transform(img), self.transform(mask)
 
+    def __len__(self):
+        return len(self.training_images) if not self.eval_mode else len(self.validation_images)
+
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
