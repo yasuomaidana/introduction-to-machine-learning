@@ -1,3 +1,6 @@
+import argparse
+import os
+
 import torch
 from PIL import Image
 import matplotlib.pyplot as plt
@@ -56,22 +59,53 @@ def visualize_results(original: Tensor, mask: Tensor, masked_image: Tensor):
     plt.show()
 
 
-# Main execution
-if __name__ == "__main__":
-    model_path = "./easy_unet_model.pth"
-    image_path = "checking car 2.jpg"
+def visualize_images_and_masks(image_paths: list[str], model: Module):
+    # Determine the number of rows (one per image, maximum of 4 images)
+    rows = min(len(image_paths), 4)
+    fig, axes = plt.subplots(rows, 2, figsize=(10, 5 * rows))
 
-    # Load the model
+    if rows == 1:
+        axes = [axes]  # Make it a list for uniform handling
+
+    for ax, image_path in zip(axes, image_paths):
+        image_tensor = load_image(image_path)
+        mask_tensor = predict_mask(model, image_tensor)
+        masked_image_tensor = image_tensor * mask_tensor.float()
+
+        ax[0].imshow(image_tensor.squeeze().permute(1, 2, 0).numpy())
+        ax[0].set_title('Original Image')
+        ax[0].axis('off')
+
+        ax[1].imshow(masked_image_tensor.squeeze().permute(1, 2, 0).numpy())
+        ax[1].set_title('Masked Image')
+        ax[1].axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
+
+def main(image_input=None):
+    model_path = "./easy_unet_model.pth"
     loaded_model = load_model(model_path)
 
-    # Load and prepare the image
-    image_tensor = load_image(image_path)
+    if image_input is None:
+        # Default image if none is provided
+        image_input = ["checking car 2.jpg"]
+    elif image_input in ['.', './']:
+        # Current directory images
+        image_input = [os.path.join(os.getcwd(), f) for f in os.listdir(os.getcwd()) if
+                       f.endswith(('.jpg', '.jpeg', '.png', '.bmp'))]
+    elif os.path.isdir(image_input):
+        # Given directory images
+        image_input = [os.path.join(image_input, f) for f in os.listdir(image_input) if
+                       f.endswith(('.jpg', '.jpeg', '.png', '.bmp'))]
 
-    # Predict the mask
-    predicted_mask = predict_mask(loaded_model, image_tensor)
+    visualize_images_and_masks(image_input, loaded_model)
 
-    # Apply the mask to the original image
-    masked_image_result = image_tensor * predicted_mask.float()  # Float for multiplication
 
-    # Visualize
-    visualize_results(image_tensor, predicted_mask, masked_image_result)
+# Main execution
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Process or visualize images with a U-Net model.')
+    parser.add_argument('input', nargs='?', default=None, help='Path to an image, "." or a directory path.')
+    args = parser.parse_args()
+    main(args.input)
