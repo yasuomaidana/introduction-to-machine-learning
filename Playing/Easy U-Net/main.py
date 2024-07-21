@@ -24,7 +24,7 @@ def load_model(path: str, model_class: Module = UNet) -> Module:
 
 # Load and preprocess the image
 def load_image(path: str) -> Tensor:
-    image = Image.open(path)
+    image = Image.open(path).convert('RGB')
     transform = Compose([
         Resize((512, 512)),
         ToTensor()  # Example normalization
@@ -40,19 +40,23 @@ def predict_mask(model: Module, image_input_tensor: Tensor, threshold=0.001) -> 
 
 
 # Visualize results
-def visualize_results(original: Tensor, mask: Tensor, masked_image: Tensor):
+def visualize_single_image(image_path: str, model: Module):
+    image_tensor = load_image(image_path)
+    mask_tensor = predict_mask(model, image_tensor)
+    masked_image_tensor = image_tensor * mask_tensor.float()
+
     ax: ndarray[Axes]
     fig, ax = plt.subplots(1, 3, figsize=(15, 5))
 
-    ax[0].imshow(original.squeeze().permute(1, 2, 0).numpy())  # Remove batch dim and convert to numpy
+    ax[0].imshow(image_tensor.squeeze().permute(1, 2, 0).numpy())
     ax[0].set_title('Original Image')
     ax[0].axis('off')
 
-    ax[1].imshow(mask[0].squeeze().numpy(), cmap='gray')  # Squeeze to remove batch and channel dims
+    ax[1].imshow(mask_tensor.squeeze().numpy(), cmap='gray')
     ax[1].set_title('Predicted Mask')
     ax[1].axis('off')
 
-    ax[2].imshow(masked_image.squeeze().permute(1, 2, 0).numpy())
+    ax[2].imshow(masked_image_tensor.squeeze().permute(1, 2, 0).numpy())
     ax[2].set_title('Masked Image')
     ax[2].axis('off')
 
@@ -67,7 +71,7 @@ def visualize_images_and_masks(image_paths: list[str], model: Module):
     if rows == 1:
         axes = [axes]  # Make it a list for uniform handling
 
-    for ax, image_path in zip(axes, image_paths):
+    for ax, image_path in zip(axes, image_paths[:rows]):
         image_tensor = load_image(image_path)
         mask_tensor = predict_mask(model, image_tensor)
         masked_image_tensor = image_tensor * mask_tensor.float()
@@ -100,7 +104,10 @@ def main(image_input=None):
         image_input = [os.path.join(image_input, f) for f in os.listdir(image_input) if
                        f.endswith(('.jpg', '.jpeg', '.png', '.bmp'))]
 
-    visualize_images_and_masks(image_input, loaded_model)
+    if len(image_input) == 1:
+        visualize_single_image(image_input[0], loaded_model)
+    else:
+        visualize_images_and_masks(image_input, loaded_model)
 
 
 # Main execution
