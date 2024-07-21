@@ -1,60 +1,77 @@
 import torch
 from PIL import Image
+import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
+from numpy import ndarray
+from torch import Tensor
+from torch.nn import Module
 from torchvision.transforms import Resize, ToTensor, Compose
-from matplotlib import pyplot as plt
 
 from model.u_net import UNet
 
 
-def print_hi(name):
-    model_path = "easy_unet_model.pth"
-    model = UNet(3, 1)
-    model.load_state_dict(torch.load(model_path))
+# Load the model
+def load_model(path: str, model_class: Module = UNet):
+    model = model_class(3, 1)
+    model.load_state_dict(
+        torch.load(path, map_location=torch.device('cpu')))  # Load on CPU; change to 'cuda' if GPU is available
     model.eval()
-    print(f"Model loaded from {model_path}")
+    return model
 
-    # Transforms for the input image
+
+# Load and preprocess the image
+def load_image(path: str):
+    image = Image.open(path)
     transform = Compose([
         Resize((512, 512)),
-        ToTensor(),
+        ToTensor()  # Example normalization
     ])
-
-    # Load an image for prediction
-    input_image_path = 'checking car 2.jpg'
-    img = Image.open(input_image_path)
+    return transform(image).unsqueeze(0)  # Add batch dimension
 
 
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-    # Apply transform and make prediction
-    input_tensor = transform(img).float().to(device).unsqueeze(0)  # Add batch dimension
-
+# Make prediction
+def predict_mask(model: Module, image_input_tensor: Tensor, threshold=0.001):
     with torch.no_grad():
-        output = model(input_tensor)
-
-    # Post-processing: Convert back to numpy and apply thresholding (optional)
-    predicted_mask = output.squeeze(0).cpu().detach().permute(1, 2, 0)
-    print(predicted_mask)
-    print(predicted_mask.max(), predicted_mask.min())
-    predicted_mask[predicted_mask < 0] = 0
-    predicted_mask[predicted_mask > 0] = 1
+        prediction = model(image_input_tensor)
+    return torch.sigmoid(prediction) > threshold  # Apply sigmoid and threshold for binary mask
 
 
-    fig, axs = plt.subplots(1, 2, figsize=(20, 7))
-    # Display Input Image
-    axs[0].set_title("Input Image")
-    axs[0].imshow(input_tensor.squeeze(0).permute(1, 2, 0))
+# Visualize results
+def visualize_results(original: Tensor, mask: Tensor, masked_image: Tensor):
+    ax: ndarray[Axes]
+    fig, ax = plt.subplots(1, 3, figsize=(15, 5))
 
-    # Display Predicted Mask
-    axs[1].set_title("Predicted Mask")
-    axs[1].imshow(predicted_mask)
+    ax[0].imshow(original.squeeze().permute(1, 2, 0).numpy())  # Remove batch dim and convert to numpy
+    ax[0].set_title('Original Image')
+    ax[0].axis('off')
+
+    ax[1].imshow(mask[0].squeeze().numpy(), cmap='gray')  # Squeeze to remove batch and channel dims
+    ax[1].set_title('Predicted Mask')
+    ax[1].axis('off')
+
+    ax[2].imshow(masked_image.squeeze().permute(1, 2, 0).numpy())
+    ax[2].set_title('Masked Image')
+    ax[2].axis('off')
 
     plt.show()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# Main execution
+if __name__ == "__main__":
+    model_path = "./easy_unet_model.pth"
+    image_path = "checking car 2.jpg"
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # Load the model
+    loaded_model = load_model(model_path)
+
+    # Load and prepare the image
+    image_tensor = load_image(image_path)
+
+    # Predict the mask
+    predicted_mask = predict_mask(loaded_model, image_tensor)
+
+    # Apply the mask to the original image
+    masked_image_result = image_tensor * predicted_mask.float()  # Float for multiplication
+
+    # Visualize
+    visualize_results(image_tensor, predicted_mask, masked_image_result)
