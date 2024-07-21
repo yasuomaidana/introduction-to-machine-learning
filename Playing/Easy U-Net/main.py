@@ -11,7 +11,7 @@ from model.u_net import UNet
 
 
 # Load the model
-def load_model(path: str, model_class: Module = UNet):
+def load_model(path: str, model_class: Module = UNet) -> Module:
     model = model_class(3, 1)
     model.load_state_dict(
         torch.load(path, map_location=torch.device('cpu')))  # Load on CPU; change to 'cuda' if GPU is available
@@ -20,7 +20,7 @@ def load_model(path: str, model_class: Module = UNet):
 
 
 # Load and preprocess the image
-def load_image(path: str):
+def load_image(path: str) -> Tensor:
     image = Image.open(path)
     transform = Compose([
         Resize((512, 512)),
@@ -30,7 +30,7 @@ def load_image(path: str):
 
 
 # Make prediction
-def predict_mask(model: Module, image_input_tensor: Tensor, threshold=0.001):
+def predict_mask(model: Module, image_input_tensor: Tensor, threshold=0.001) -> Tensor:
     with torch.no_grad():
         prediction = model(image_input_tensor)
     return torch.sigmoid(prediction) > threshold  # Apply sigmoid and threshold for binary mask
