@@ -1,0 +1,12 @@
+[package]
+name = "einstein_mul_rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "einstein_mul_rs_lib"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.22.0"
+rayon = "1.5.3"

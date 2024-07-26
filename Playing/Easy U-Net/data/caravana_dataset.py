@@ -29,7 +29,6 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
     dataset = CaravanDataset("./raw")
-
     fig, axs = plt.subplots(1, 2, figsize=(10, 5))
     axs[0].imshow(dataset[0][0].permute(1, 2, 0))
     axs[1].imshow(dataset[0][1].squeeze(), cmap="gray")
