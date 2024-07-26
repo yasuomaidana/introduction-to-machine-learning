@@ -1,4 +1,4 @@
-# Einstein Notation Multiplicaton
+# Einstein Notation Multiplication
 
 Einstein notation provides a compressed way to represent repeated matrix multiplications.
 

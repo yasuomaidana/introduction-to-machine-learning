@@ -1,22 +1,23 @@
-use pyo3::{Bound, pyfunction, pymodule, PyResult, wrap_pyfunction};
 use pyo3::prelude::{PyModule, PyModuleMethods};
+use pyo3::{pyfunction, pymodule, wrap_pyfunction, Bound, PyResult};
 use rayon::prelude::*;
 
 mod test;
 
 #[pyfunction]
-fn einstein_mul_rs(a:Vec<Vec<f64>>,b:Vec<Vec<f64>>) -> PyResult<Vec<Vec<f64>>>{
+fn einstein_mul_rs(a: Vec<Vec<f64>>, b: Vec<Vec<f64>>) -> PyResult<Vec<Vec<f64>>> {
     let rows = a.len();
     let cols = b[0].len();
     let mut c = vec![vec![0.0; cols]; rows];
 
-    c.par_iter_mut().enumerate().
-        for_each(|(i, row)| {
-        for j in 0..cols {
-            for k in 0..b.len() {
-                row[j] += a[i][k] * b[k][j];
-            }
-        }
+    c.par_iter_mut().enumerate().for_each(|(i, row)| {
+        row.par_iter_mut().enumerate().for_each(|(j, c_ij)| {
+            *c_ij = a[i]
+                .par_iter()
+                .zip(b.par_iter().map(|row| row[j]))
+                .map(|(a_ij, b_ji)| a_ij * b_ji)
+                .sum();
+        });
     });
 
     Ok(c)
