@@ -3,7 +3,7 @@ mod lib_test;
 #[derive(Debug)]
 pub struct Basis{
     pub rank: usize,
-    pub basis: Vec<Vec<f64>>,
+    pub basis_vectors: Vec<Vec<f64>>,
 }
 
 fn dot_product(v1:&Vec<f64>, v2:&Vec<f64>) -> f64{
@@ -48,6 +48,6 @@ pub fn gram_schmidt(vectors:&Vec<Vec<f64>>) -> Basis {
         rank += 1;
     }
 
-    Basis{rank, basis:basis_vectors}
+    Basis{rank, basis_vectors }
 }
 

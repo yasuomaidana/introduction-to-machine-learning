@@ -1,5 +1,5 @@
 [package]
-name = "gram_schmidth_lib"
+name = "gram_schmidt_lib"
 version = "0.1.0"
 authors = ["Yasuo I. Maidana P."]
 edition = "2021"
