@@ -1,0 +1,7 @@
+[package]
+name = "Example"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gram_schmidt_lib = {path = "../gram_schmidt_lib"}
