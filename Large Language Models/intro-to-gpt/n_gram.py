@@ -60,6 +60,20 @@ def count_ngrams(texts: list[list[str]], n: int) -> dict[tuple[str, ...], dict[s
     return ngram_counts
 
 
+def load_corpus(file_path: str) -> list[list[str]]:
+    """
+    Load and tokenize a corpus from a file.
+
+    Args:
+        file_path (str): Path to the corpus file.
+
+    Returns:
+        List[List[str]]: Tokenized lines from the corpus.
+    """
+    with open(file_path, 'rt') as corpus:
+        return [line.split() for line in corpus.readlines()]
+
+
 def load_ngrams(path: str) -> dict:
     """
     Load n-grams from a file.
@@ -77,8 +91,7 @@ def load_ngrams(path: str) -> dict:
         import re
         n_value = int(re.search(r'n(\d+)', path).group(1))
         # Load the corpus and tokenize it
-        with open("arthur-conan-doyle.tok.train.txt", 'rb') as corpus:
-            full_text = [line.decode().split() for line in corpus.readlines()]
+        full_text = load_corpus("arthur-conan-doyle.tok.train.txt")
         data = {'n': n_value, 'model': count_ngrams(full_text, n=n_value)}
         with open(path, "wb") as file_out:
             # noinspection PyTypeChecker
