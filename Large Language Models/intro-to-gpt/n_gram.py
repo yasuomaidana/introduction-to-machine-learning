@@ -96,6 +96,17 @@ class NGramLM:
         self.verbose = verbose
 
     def get_prob(self, context, token):
+        """
+        Calculate the probability of a token given its context using the n-gram model.
+    
+        Args:
+            context (list[str]): The preceding tokens (n-1 context) for the token.
+            token (str): The token for which the probability is calculated.
+    
+        Returns:
+            float: The probability of the token given the context.
+        """
+
         # Take only the n-1 most recent context (Markov Assumption)
         context = tuple(context[-self.n + 1:])
         # Add <BOS> tokens if the context is too short, i.e., it's at the start of the sequence
