@@ -81,6 +81,7 @@ def load_ngrams(path: str) -> dict:
             full_text = [line.decode().split() for line in corpus.readlines()]
         data = {'n': n_value, 'model': count_ngrams(full_text, n=n_value)}
         with open(path, "wb") as file_out:
+            # noinspection PyTypeChecker
             pickle.dump(data, file_out)
     return data
 
