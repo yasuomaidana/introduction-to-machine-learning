@@ -1,8 +1,8 @@
 import pickle
 
-BOS = '<BOS>'
-EOS = '<EOS>'
-OOV = '<OOV>'
+BOS = '<BOS>' # Beginning of sequence token
+EOS = '<EOS>' # End of sequence token
+OOV = '<OOV>' # Out of vocabulary token
 
 
 def build_ngrams(tokens: list[str], n: int) -> list[tuple[str, ...]]:
@@ -99,6 +99,29 @@ def load_ngrams(path: str) -> dict:
     return data
 
 
+def generate_context(context: list[str], n: int, V: set) -> tuple[str, ...]:
+    """
+    Generate the context for an n-gram model by processing the input context.
+
+    Args:
+        context (list[str]): The preceding tokens (n-1 context) for the current token.
+        n (int): The size of the n-grams.
+        V (set): The vocabulary set containing all valid tokens.
+
+    Returns:
+        tuple[str, ...]: A tuple representing the processed context, padded with <BOS> tokens
+        if necessary and replacing out-of-vocabulary tokens with <OOV>.
+    """
+
+    # Take only the n-1 most recent context (Markov Assumption)
+    context = tuple(context[-n + 1:])
+    # Add <BOS> tokens if the context is too short, i.e., it's at the start of the sequence
+    while len(context) < (n - 1):
+        context = (BOS,) + context
+    # Handle words that were not encountered during the training by replacing them with a special <OOV> token
+    return tuple((c if c in V else OOV) for c in context)
+
+
 class NGramLM:
     def __init__(self, path, smoothing=0.001, verbose=False):
         data = load_ngrams(path)
@@ -121,12 +144,8 @@ class NGramLM:
         """
 
         # Take only the n-1 most recent context (Markov Assumption)
-        context = tuple(context[-self.n + 1:])
-        # Add <BOS> tokens if the context is too short, i.e., it's at the start of the sequence
-        while len(context) < (self.n - 1):
-            context = (BOS,) + context
-        # Handle words that were not encountered during the training by replacing them with a special <OOV> token
-        context = tuple((c if c in self.V else OOV) for c in context)
+        context = generate_context(context, self.n, V=self.V)
+
         if token not in self.V:
             token = OOV
         if context in self.model:
@@ -140,3 +159,41 @@ class NGramLM:
         if self.verbose:
             print(f'{prob:.4n}', *context, '->', token)
         return prob
+
+
+class NGramLMMaximumLikelihood(NGramLM):
+    """
+    Extends the NGramLM class by implementing a Maximum Likelihood approach,
+    optionally applying Laplace smoothing. Provides a method to compute the
+    probability distribution for any given context.
+    """
+
+    def __init__(self, path, smoothing=0.001, verbose=False):
+        super().__init__(path, smoothing, verbose)
+
+    def get_prob_dist(self, context):
+        """
+        Computes the probability distribution over all valid tokens
+        given the specified context using Maximum Likelihood Estimation.
+
+        Args:
+            context (list[str]): The preceding tokens acting as context.
+
+        Returns:
+            dict[str, float]: A mapping from each token to its probability,
+            sorted in descending order by probability.
+        """
+        # Take only the n-1 most recent context (Markov Assumption)
+        context = generate_context(context, self.n, V=self.V)
+        if context in self.model:
+            # Compute the probability distribution using a Maximum Likelihood Estimation and Laplace Smoothing
+            norm = sum(self.model[context].values()) + self.smoothing * len(self.V)
+            prob_dist = {k: (c + self.smoothing) / norm for k, c in self.model[context].items()}
+            for word in self.V - prob_dist.keys():
+                prob_dist[word] = self.smoothing / norm
+        else:
+            # Simplified formula if we never encountered this context; the probability of all tokens is uniform
+            prob = 1 / len(self.V)
+            prob_dist = {k: prob for k in self.V}
+        prob_dist = dict(sorted(prob_dist.items(), key=lambda x: (-x[1], x[0])))
+        return prob_dist
