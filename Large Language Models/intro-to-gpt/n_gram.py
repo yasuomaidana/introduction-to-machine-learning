@@ -99,6 +99,29 @@ def load_ngrams(path: str) -> dict:
     return data
 
 
+def generate_context(context: list[str], n: int, V: set) -> tuple[str, ...]:
+    """
+    Generate the context for an n-gram model by processing the input context.
+
+    Args:
+        context (list[str]): The preceding tokens (n-1 context) for the current token.
+        n (int): The size of the n-grams.
+        V (set): The vocabulary set containing all valid tokens.
+
+    Returns:
+        tuple[str, ...]: A tuple representing the processed context, padded with <BOS> tokens
+        if necessary and replacing out-of-vocabulary tokens with <OOV>.
+    """
+
+    # Take only the n-1 most recent context (Markov Assumption)
+    context = tuple(context[-n + 1:])
+    # Add <BOS> tokens if the context is too short, i.e., it's at the start of the sequence
+    while len(context) < (n - 1):
+        context = (BOS,) + context
+    # Handle words that were not encountered during the training by replacing them with a special <OOV> token
+    return tuple((c if c in V else OOV) for c in context)
+
+
 class NGramLM:
     def __init__(self, path, smoothing=0.001, verbose=False):
         data = load_ngrams(path)
@@ -121,12 +144,8 @@ class NGramLM:
         """
 
         # Take only the n-1 most recent context (Markov Assumption)
-        context = tuple(context[-self.n + 1:])
-        # Add <BOS> tokens if the context is too short, i.e., it's at the start of the sequence
-        while len(context) < (self.n - 1):
-            context = (BOS,) + context
-        # Handle words that were not encountered during the training by replacing them with a special <OOV> token
-        context = tuple((c if c in self.V else OOV) for c in context)
+        context = generate_context(context, self.n, V=self.V)
+
         if token not in self.V:
             token = OOV
         if context in self.model:
