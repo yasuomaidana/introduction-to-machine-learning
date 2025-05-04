@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Journey.md",
+                "file": "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Journey"
+              "title": "Intrinsic Evaluation Perplexity"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Journey.md",
+                "file": "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Journey"
+              "title": "Backlinks for Intrinsic Evaluation Perplexity"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Journey.md",
+                "file": "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Journey"
+              "title": "Outgoing links from Intrinsic Evaluation Perplexity"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Journey.md",
+                "file": "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Journey"
+              "title": "Outline of Intrinsic Evaluation Perplexity"
             }
           }
         ]
@@ -170,11 +170,12 @@
   },
   "active": "698a31debae7cd5f",
   "lastOpenFiles": [
-    "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
-    "Journey.md",
     "intro-to-gpt/Generating Text.md",
+    "intro-to-gpt/Generating Text with N-gram model.ipynb",
     "Readme.md",
+    "Journey.md",
     "Additional Material and Notes.md",
+    "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
     "intro-to-gpt/Additional Material and Notes.md",
     "Jurafsky.md"
   ]
