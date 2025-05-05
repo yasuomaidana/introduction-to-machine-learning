@@ -1,0 +1,15 @@
+[package]
+name = "bert-example"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+candle-core = { workspace = true, features = ["metal"] }
+anyhow = { workspace = true }
+candle-nn = { workspace = true }
+candle-transformers = { workspace = true }
+clap = { workspace = true, features = ["derive"] }
+hf-hub = { workspace = true }
+tokenizers = { workspace = true }
+
+
