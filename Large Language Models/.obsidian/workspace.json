@@ -11,10 +11,14 @@
             "id": "345d55f5e2ba6399",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Neural language models"
             }
           }
         ]
@@ -74,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "28b3796fa374d717",
@@ -164,8 +169,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ea056b0390c1d743",
+  "active": "345d55f5e2ba6399",
   "lastOpenFiles": [
+    "intro-to-gpt/softmax_example.py",
+    "intro-to-gpt/Neural Language Models & Transformers",
+    "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/work-products.bin",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/query-cache.bin",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/ecozqyb4cml5omkvjlwb4hvz7.o",
@@ -175,8 +183,6 @@
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/dseqnp802ssr8n89254qouw10.o",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/doyvtc8alsmuk0rfrp1k1m177.o",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/dopdykf2rb99v1wgecruyigvz.o",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/dep-graph.bin",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/d4f9jgnmzywc35njenpx1rvl4.o",
     "intro-to-gpt/tokenization/Words, tokens, or sub-tokens.md",
     "intro-to-gpt/tokenization/Representing text with numerical vectors.md",
     "intro-to-gpt/tokenization/2D Word embedding example.png",
