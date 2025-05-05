@@ -1,8 +1,8 @@
 import pickle
 
-BOS = '<BOS>' # Beginning of sequence token
-EOS = '<EOS>' # End of sequence token
-OOV = '<OOV>' # Out of vocabulary token
+BOS = '<BOS>'  # Beginning of sequence token
+EOS = '<EOS>'  # End of sequence token
+OOV = '<OOV>'  # Out of vocabulary token
 
 
 def build_ngrams(tokens: list[str], n: int) -> list[tuple[str, ...]]:
