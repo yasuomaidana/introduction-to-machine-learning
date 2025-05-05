@@ -6,10 +6,11 @@ edition = "2024"
 [dependencies]
 candle-core = { workspace = true, features = ["metal"] }
 anyhow = { workspace = true }
-candle-nn = { workspace = true }
-candle-transformers = { workspace = true }
+candle-nn = { workspace = true, features = ["metal"] }
+candle-transformers = { workspace = true, features = ["metal"] }
 clap = { workspace = true, features = ["derive"] }
-hf-hub = { workspace = true }
+hf-hub = { workspace = true , features = ["tokio"] }
 tokenizers = { workspace = true }
+serde_json = "1.0.140"
 
 

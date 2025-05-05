@@ -140,6 +140,7 @@ dependencies = [
  "candle-transformers",
  "clap",
  "hf-hub",
+ "serde_json",
  "tokenizers",
 ]
 
@@ -259,7 +260,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c1980d53280c8f9e2c6cbe1785855d7ff8010208b46e21252b978badf13ad69d"
 dependencies = [
  "candle-core",
+ "candle-metal-kernels",
  "half",
+ "metal 0.27.0",
  "num-traits",
  "rayon",
  "safetensors",
