@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
+    "ipywidgets>=8.1.6",
     "matplotlib>=3.10.1",
     "notebook>=7.4.1",
     "seaborn>=0.13.2",
+    "torch>=2.7.0",
+    "transformers>=4.51.3",
 ]
