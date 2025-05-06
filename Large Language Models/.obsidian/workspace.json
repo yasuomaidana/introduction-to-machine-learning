@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "intro-to-gpt/Neural Language Models & Transformers/The Transformer architecture.md",
+                "file": "intro-to-gpt/Neural Language Models & Transformers/How are Transformers trained?.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Transformer architecture"
+              "title": "How are Transformers trained?"
             }
           }
         ]
@@ -170,8 +170,9 @@
   },
   "active": "d056b75816fb701e",
   "lastOpenFiles": [
-    "intro-to-gpt/Neural Language Models & Transformers/Stacking.png",
     "intro-to-gpt/Neural Language Models & Transformers/The Transformer architecture.md",
+    "intro-to-gpt/Neural Language Models & Transformers/How are Transformers trained?.md",
+    "intro-to-gpt/Neural Language Models & Transformers/Stacking.png",
     "intro-to-gpt/Neural Language Models & Transformers/encoder.webp",
     "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
     "intro-to-gpt/Neural Language Models & Transformers/Transforming.png",
