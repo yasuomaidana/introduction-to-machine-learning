@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e555f432f5bf1264",
+        "id": "5c7eba971daa5968",
         "type": "tabs",
         "children": [
           {
-            "id": "b82758633654f6ac",
+            "id": "d056b75816fb701e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -168,12 +168,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b82758633654f6ac",
+  "active": "d056b75816fb701e",
   "lastOpenFiles": [
-    "Diagrams.drawio",
-    "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
-    "intro-to-gpt/Neural Language Models & Transformers/Embedding transformation.png",
+    "intro-to-gpt/Neural Language Models & Transformers/Stacking.png",
     "intro-to-gpt/Neural Language Models & Transformers/The Transformer architecture.md",
+    "intro-to-gpt/Neural Language Models & Transformers/encoder.webp",
+    "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
+    "intro-to-gpt/Neural Language Models & Transformers/Transforming.png",
+    "intro-to-gpt/Neural Language Models & Transformers/Weight importance.png",
+    "Diagrams.drawio",
+    "intro-to-gpt/Neural Language Models & Transformers/Embedding transformation.png",
     "intro-to-gpt/Neural Language Models & Transformers/Screenshot 2025-05-05 at 5.47.54 p.m..png",
     "Untitled.canvas",
     "intro-to-gpt/softmax_example.py",
@@ -185,7 +189,6 @@
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/e93vhr50romxe3e62zvfxa0dc.o",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/e0fp3z6hoeb0gvp568bwsb53k.o",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/dseqnp802ssr8n89254qouw10.o",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/doyvtc8alsmuk0rfrp1k1m177.o",
     "intro-to-gpt/tokenization/Words, tokens, or sub-tokens.md",
     "intro-to-gpt/tokenization/Representing text with numerical vectors.md",
     "intro-to-gpt/tokenization/2D Word embedding example.png",
