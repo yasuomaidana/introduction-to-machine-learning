@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "intro-to-gpt/Neural Language Models & Transformers/How are Transformers trained?.md",
+                "file": "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "How are Transformers trained?"
+              "title": "Intrinsic Evaluation Perplexity"
             }
           }
         ],
@@ -93,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "28b3796fa374d717",
@@ -185,11 +186,12 @@
   },
   "active": "c3cbf45982da6f04",
   "lastOpenFiles": [
+    "intro-to-gpt/Neural Language Models & Transformers/How are Transformers trained?.md",
+    "intro-to-gpt/Neural Language Models & Transformers/Calculating Perplexity.ipynb",
     "intro-to-gpt/Neural Language Models & Transformers/Language Modelling with Transformers.ipynb",
     "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
     "intro-to-gpt/Neural Language Models & Transformers/The Transformer architecture.md",
     "LLaMA external sources.md",
-    "intro-to-gpt/Neural Language Models & Transformers/How are Transformers trained?.md",
     "intro-to-gpt/Neural Language Models & Transformers/Stacking.png",
     "intro-to-gpt/Neural Language Models & Transformers/encoder.webp",
     "intro-to-gpt/Neural Language Models & Transformers/Transforming.png",
@@ -205,8 +207,6 @@
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/ecozqyb4cml5omkvjlwb4hvz7.o",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/ebq6abwhm6t73htbgaru123yc.o",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/e93vhr50romxe3e62zvfxa0dc.o",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/e0fp3z6hoeb0gvp568bwsb53k.o",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/dseqnp802ssr8n89254qouw10.o",
     "intro-to-gpt/tokenization/Words, tokens, or sub-tokens.md",
     "intro-to-gpt/tokenization/Representing text with numerical vectors.md",
     "intro-to-gpt/tokenization/2D Word embedding example.png",
