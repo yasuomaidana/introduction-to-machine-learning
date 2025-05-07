@@ -186,6 +186,8 @@
   },
   "active": "c3cbf45982da6f04",
   "lastOpenFiles": [
+    "intro-to-gpt/Miselaneous/Cosine Similarity.ipynb",
+    "intro-to-gpt/Miselaneous",
     "intro-to-gpt/Neural Language Models & Transformers/How are Transformers trained?.md",
     "intro-to-gpt/Neural Language Models & Transformers/Calculating Perplexity.ipynb",
     "intro-to-gpt/Neural Language Models & Transformers/Language Modelling with Transformers.ipynb",
@@ -206,7 +208,6 @@
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/query-cache.bin",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/ecozqyb4cml5omkvjlwb4hvz7.o",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/ebq6abwhm6t73htbgaru123yc.o",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/e93vhr50romxe3e62zvfxa0dc.o",
     "intro-to-gpt/tokenization/Words, tokens, or sub-tokens.md",
     "intro-to-gpt/tokenization/Representing text with numerical vectors.md",
     "intro-to-gpt/tokenization/2D Word embedding example.png",
