@@ -1,0 +1,16 @@
+[package]
+name = "rust-candle"
+version = "0.1.0"
+edition = "2024"
+
+[workspace.dependencies]
+candle-core = { version = "0.9.1", features = ["metal"] }
+anyhow = "1.0.98"
+candle-nn = "0.9.1"
+candle-transformers = "0.9.1"
+clap = "4.5.37"
+hf-hub = "0.4.2"
+tokenizers = "0.21.1"
+
+[workspace]
+members = ["bert-example", "hello_world"]
