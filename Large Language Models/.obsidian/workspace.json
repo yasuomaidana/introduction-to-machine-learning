@@ -209,8 +209,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ea056b0390c1d743",
+  "active": "589a873ebbb17f68",
   "lastOpenFiles": [
+    "intro-to-gpt/GPT/Language Generation with Transformers.ipynb",
     "intro-to-gpt/GPT/GPT and BERT.md",
     "intro-to-gpt/GPT/Using GPT.md",
     "intro-to-gpt/GPT/gpt architechture.webp",
