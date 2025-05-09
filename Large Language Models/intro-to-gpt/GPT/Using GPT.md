@@ -33,3 +33,8 @@ cheese =>  <- prompt
 Translate English to French: <- task description
 cheese =>  <- prompt
 ```
+
+## Additional material
+
+[How to generate text: using different decoding methods for language generation with Transformers](https://huggingface.co/blog/how-to-generate)
+
