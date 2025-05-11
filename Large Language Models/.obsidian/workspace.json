@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "intro-to-gpt/Hallucinations.md",
+                "file": "intro-to-gpt/Chatbots, RLHF, and ChatGPT/Chatbots, RLHF, and ChatGPT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Hallucinations"
+              "title": "Chatbots, RLHF, and ChatGPT"
             }
           },
           {
@@ -211,8 +211,11 @@
   },
   "active": "589a873ebbb17f68",
   "lastOpenFiles": [
-    "intro-to-gpt/Generating Text.md",
+    "intro-to-gpt/Chatbots, RLHF, and ChatGPT/Basic Chatbot.ipynb",
+    "intro-to-gpt/Chatbots, RLHF, and ChatGPT",
     "intro-to-gpt/Hallucinations.md",
+    "intro-to-gpt/Chatbots, RLHF, and ChatGPT/Chatbots, RLHF, and ChatGPT.md",
+    "intro-to-gpt/Generating Text.md",
     "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
     "intro-to-gpt/GPT/Using GPT.md",
     "intro-to-gpt/GPT/Language Generation with Transformers.ipynb",
@@ -242,7 +245,6 @@
     "Untitled.canvas",
     "intro-to-gpt/softmax_example.py",
     "intro-to-gpt/Neural Language Models & Transformers",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/work-products.bin",
     "intro-to-gpt/Tokenization/Words, tokens, or sub-tokens.md",
     "intro-to-gpt/Tokenization/Representing text with numerical vectors.md",
     "Journey.md",
