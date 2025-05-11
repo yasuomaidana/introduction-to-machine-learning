@@ -21,3 +21,7 @@ Optimising for human preferences:
 First InstructGPT (Ouyang et al 2022), then ChatGPT
 RLHF agents are rewarded for responses that **humans prefer**, but this is not necessarily true.
 - Improves output, but does not **eliminate hallucinations!**
+
+## Additional material
+
+[Advances in Neural Information Processing Systems 35 (NeurIPS 2022)](https://proceedings.neurips.cc/paper_files/paper/2022)
