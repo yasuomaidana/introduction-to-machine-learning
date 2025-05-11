@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "intro-to-gpt/Allucinations.md",
+                "file": "intro-to-gpt/Hallucinations.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Allucinations"
+              "title": "Hallucinations"
             }
           },
           {
@@ -212,7 +212,7 @@
   "active": "589a873ebbb17f68",
   "lastOpenFiles": [
     "intro-to-gpt/Generating Text.md",
-    "intro-to-gpt/Allucinations.md",
+    "intro-to-gpt/Hallucinations.md",
     "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
     "intro-to-gpt/GPT/Using GPT.md",
     "intro-to-gpt/GPT/Language Generation with Transformers.ipynb",
