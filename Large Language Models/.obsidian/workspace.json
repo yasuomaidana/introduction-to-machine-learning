@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "intro-to-gpt/GPT/Using GPT.md",
+                "file": "intro-to-gpt/Allucinations.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Using GPT"
+              "title": "Allucinations"
             }
           },
           {
@@ -211,9 +211,12 @@
   },
   "active": "589a873ebbb17f68",
   "lastOpenFiles": [
+    "intro-to-gpt/Generating Text.md",
+    "intro-to-gpt/Allucinations.md",
+    "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
+    "intro-to-gpt/GPT/Using GPT.md",
     "intro-to-gpt/GPT/Language Generation with Transformers.ipynb",
     "intro-to-gpt/GPT/GPT and BERT.md",
-    "intro-to-gpt/GPT/Using GPT.md",
     "intro-to-gpt/GPT/gpt architechture.webp",
     "intro-to-gpt/GPT/bert sentiment analysis.png",
     "intro-to-gpt/GPT/bert masks.png",
@@ -229,7 +232,6 @@
     "intro-to-gpt/GPT/ELMo model.png",
     "intro-to-gpt/Neural Language Models & Transformers/The Transformer architecture.md",
     "intro-to-gpt/GPT",
-    "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
     "intro-to-gpt/Miselaneous/Cosine Similarity.ipynb",
     "intro-to-gpt/Miselaneous",
     "intro-to-gpt/Neural Language Models & Transformers/Calculating Perplexity.ipynb",
@@ -241,10 +243,8 @@
     "intro-to-gpt/softmax_example.py",
     "intro-to-gpt/Neural Language Models & Transformers",
     "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/work-products.bin",
-    "rust-candle/target/debug/incremental/bert_example-0ju4fwsz8w7kr/s-h72s4qj8w7-11xob3l-azc7ez2mj3wimonew8dfsq7vu/query-cache.bin",
     "intro-to-gpt/Tokenization/Words, tokens, or sub-tokens.md",
     "intro-to-gpt/Tokenization/Representing text with numerical vectors.md",
-    "intro-to-gpt/Generating Text.md",
     "Journey.md",
     "intro-to-gpt/Additional Material and Notes.md",
     "Jurafsky.md"
