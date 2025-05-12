@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "deep-learning-for-natural-language-processing/DL for NLP Table of content.md",
+                "file": "deep-learning-for-natural-language-processing/Feedforward Networks/The Perceptron.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DL for NLP Table of content"
+              "title": "The Perceptron"
             }
           }
         ]
@@ -170,7 +170,11 @@
   },
   "active": "e9307efc70909c7e",
   "lastOpenFiles": [
-    "intro-to-gpt/Intro to GPT Table of Contents.md",
+    "deep-learning-for-natural-language-processing/Deep Learning for Natural Language Processing.md",
+    "deep-learning-for-natural-language-processing/Feedforward Networks/Feedforward Networks.md",
+    "intro-to-gpt/Intro to GPT.md",
+    "Journey.md",
+    "DL for NLP Table of Contents.md",
     "intro-to-gpt/Chatbots, RLHF, and ChatGPT.md",
     "intro-to-gpt/Chatbots, RLHF, and ChatGPT/Chatbots, RLHF, and ChatGPT.md",
     "intro-to-gpt/Generating Text.md",
@@ -178,7 +182,6 @@
     "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
     "LLaMA external sources.md",
     "Readme.md",
-    "deep-learning-for-natural-language-processing/DL for NLP Table of content.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks/The Perceptron.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks/Mathematics of Feedforward Networks.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks/Untitled.md",
@@ -186,7 +189,6 @@
     "deep-learning-for-natural-language-processing/Feedforward Networks/Untitled 4.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks/Feedforward Networks in NLP.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks/The XOR Problem.md",
-    "deep-learning-for-natural-language-processing/Feedforward Networks/Feedforward Networks.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks",
     "deep-learning-for-natural-language-processing/pyproject.toml",
     "deep-learning-for-natural-language-processing/hello.py",
@@ -214,8 +216,6 @@
     "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
     "intro-to-gpt/Neural Language Models & Transformers/Stacking.png",
     "Untitled.canvas",
-    "intro-to-gpt/Tokenization/Words, tokens, or sub-tokens.md",
-    "intro-to-gpt/Tokenization/Representing text with numerical vectors.md",
-    "intro-to-gpt/Additional Material and Notes.md"
+    "intro-to-gpt/Tokenization/Words, tokens, or sub-tokens.md"
   ]
 }
