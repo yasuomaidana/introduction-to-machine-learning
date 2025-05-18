@@ -13,7 +13,3 @@ Lengths:
 - Sentence embedding - can then be fed into a network
 	- Sum of embeddings
 	- Maximum/minimum/average of embeddings
-
-## Classification with Sentence Embeddings
-
-
