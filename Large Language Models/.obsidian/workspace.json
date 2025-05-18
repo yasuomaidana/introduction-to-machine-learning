@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "80ff160e4339400e",
+        "id": "8c7237a81417d19b",
         "type": "tabs",
         "children": [
           {
-            "id": "622db7e7bac9e68e",
+            "id": "29e9b5fa4b596bab",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "deep-learning-for-natural-language-processing/Feedforward Networks/The XOR Problem.md",
+                "file": "deep-learning-for-natural-language-processing/Implementing and Training Neural Networks/The Intuition behind Gradient Descent.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The XOR Problem"
+              "title": "The Intuition behind Gradient Descent"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
+                "file": "deep-learning-for-natural-language-processing/Deep Learning for Natural Language Processing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Intrinsic Evaluation Perplexity"
+              "title": "Backlinks for Deep Learning for Natural Language Processing"
             }
           },
           {
@@ -168,17 +168,30 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ea056b0390c1d743",
+  "active": "29e9b5fa4b596bab",
   "lastOpenFiles": [
-    "deep-learning-for-natural-language-processing/Feedforward Networks/Feedforward Networks.md",
-    "deep-learning-for-natural-language-processing/Feedforward Networks/Feedforward Networks in NLP.md",
+    "deep-learning-for-natural-language-processing/Implementing and Training Neural Networks/Stochastic Gradient Descent in Python.md",
+    "deep-learning-for-natural-language-processing/Implementing and Training Neural Networks/Stochastic Gradient Descent.md",
+    "deep-learning-for-natural-language-processing/Implementing and Training Neural Networks/Loss Functions.md",
+    "deep-learning-for-natural-language-processing/Recurrent Neural Networks/Sentence Embeddings with Recurrent Neural Networks.md",
+    "deep-learning-for-natural-language-processing/Deep Learning for Natural Language Processing.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks/Sentence Embeddings with Feedforward Networks.md",
-    "deep-learning-for-natural-language-processing/Feedforward Networks/simple feed forward.jpeg",
     "deep-learning-for-natural-language-processing/Feedforward Networks/The XOR Problem.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks/The Perceptron.md",
-    "deep-learning-for-natural-language-processing/Deep Learning for Natural Language Processing.md",
-    "intro-to-gpt/Intro to GPT.md",
+    "deep-learning-for-natural-language-processing/Feedforward Networks/Mathematics of Feedforward Networks.md",
+    "deep-learning-for-natural-language-processing/Feedforward Networks/Feedforward Networks in NLP.md",
+    "deep-learning-for-natural-language-processing/Implementing and Training Neural Networks/The Intuition behind Gradient Descent.md",
+    "deep-learning-for-natural-language-processing/Implementing and Training Neural Networks",
+    "deep-learning-for-natural-language-processing/Recurrent Neural Networks/LSTMs and GRUs.md",
+    "deep-learning-for-natural-language-processing/Recurrent Neural Networks/Recurrent Neural Networks in Python.md",
+    "deep-learning-for-natural-language-processing/Recurrent Neural Networks/Hierarchical Recurrent Neural Networks.md",
+    "deep-learning-for-natural-language-processing/Recurrent Neural Networks/Sequence Labelling with Recurrent Neural Networks.md",
+    "deep-learning-for-natural-language-processing/Recurrent Neural Networks/Bidirectional Recurrent Neural Networks.md",
+    "deep-learning-for-natural-language-processing/Recurrent Neural Networks",
+    "deep-learning-for-natural-language-processing/Feedforward Networks/Feedforward Networks.md",
     "Journey.md",
+    "deep-learning-for-natural-language-processing/Feedforward Networks/simple feed forward.jpeg",
+    "intro-to-gpt/Intro to GPT.md",
     "DL for NLP Table of Contents.md",
     "intro-to-gpt/Chatbots, RLHF, and ChatGPT.md",
     "intro-to-gpt/Chatbots, RLHF, and ChatGPT/Chatbots, RLHF, and ChatGPT.md",
@@ -186,10 +199,6 @@
     "intro-to-gpt/Hallucinations.md",
     "intro-to-gpt/Intrinsic Evaluation Perplexity.md",
     "LLaMA external sources.md",
-    "Readme.md",
-    "deep-learning-for-natural-language-processing/Feedforward Networks/Mathematics of Feedforward Networks.md",
-    "deep-learning-for-natural-language-processing/Feedforward Networks/Untitled.md",
-    "deep-learning-for-natural-language-processing/Feedforward Networks/Untitled 4.md",
     "deep-learning-for-natural-language-processing/Feedforward Networks",
     "deep-learning-for-natural-language-processing/pyproject.toml",
     "deep-learning-for-natural-language-processing/hello.py",
@@ -198,23 +207,15 @@
     "Deep Learning for Natural Language Processing",
     "intro-to-gpt/Chatbots, RLHF, and ChatGPT/Basic Chatbot.ipynb",
     "intro-to-gpt/Chatbots, RLHF, and ChatGPT",
-    "intro-to-gpt/GPT/Using GPT.md",
-    "intro-to-gpt/GPT/Language Generation with Transformers.ipynb",
-    "intro-to-gpt/GPT/GPT and BERT.md",
     "intro-to-gpt/GPT/gpt architechture.webp",
     "intro-to-gpt/GPT/bert sentiment analysis.png",
     "intro-to-gpt/GPT/bert masks.png",
     "intro-to-gpt/GPT/bert masks.jpg",
-    "Additional Material and Notes.md",
-    "intro-to-gpt/Neural Language Models & Transformers/How are Transformers trained?.md",
     "intro-to-gpt/GPT/gpt and bert.webp",
     "intro-to-gpt/GPT/Bert model.png",
     "intro-to-gpt/Neural Language Models & Transformers/encoder.webp",
     "intro-to-gpt/Neural Language Models & Transformers/Embedding transformation.png",
     "intro-to-gpt/GPT/ELMo model.png",
-    "intro-to-gpt/Neural Language Models & Transformers/The Transformer architecture.md",
-    "intro-to-gpt/GPT",
-    "intro-to-gpt/Neural Language Models & Transformers/Neural language models.md",
     "Untitled.canvas"
   ]
 }
