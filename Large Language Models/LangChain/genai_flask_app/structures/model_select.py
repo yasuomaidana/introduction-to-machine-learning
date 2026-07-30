@@ -16,9 +16,8 @@ class Mode(str, Enum):
 
 
 class SentimentResponse(BaseModel):
-    summary: str = Field(description="Summary of the user's message")
+    summary: str = Field(description="Summary of the user's message up to two sentences")
     sentiment: int = Field(description="Sentiment score from 0 (negative) to 100 (positive)")
-    response: str = Field(description="Suggested response to the user")
 
 
 class GeneralResponse(BaseModel):
@@ -37,13 +36,13 @@ class ModelSelection(BaseModel):
     )
     mode: Mode = Field(
         description=(
-            "Execution mode:\n"
-            "- FORMATTED: Use whenever the user explicitly requests JSON output, structured format, sentiment analysis, ratings, or classification.\n"
-            "- TOOL_USAGE: Use ONLY when the user needs math calculations (e.g. arithmetic, calculations) or specific text formatting tools.\n"
-            "- SIMPLE: Use for standard conversational answers."
+            "Routing classification mode:\n"
+            "- TOOL_USAGE: MUST be selected if the user request involves math equations, arithmetic, calculations (e.g. '6*4^3', '2+2', numbers), or explicit text formatting (uppercase, titlecase).\n"
+            "- FORMATTED: MUST be selected ONLY if the user explicitly asks for JSON output, sentiment analysis, or structured classification.\n"
+            "- SIMPLE: Default for standard questions, chat, or explanations."
         )
     )
     schema_type: Schema | None = Field(
         default=None,
-        description="Required if mode is FORMATTED: 'SENTIMENT' (for reviews, sentiment, classification) or 'GENERAL' (for other structured JSON outputs)."
+        description="MUST be set to null if mode is TOOL_USAGE or SIMPLE. If mode is FORMATTED, set to 'SENTIMENT' (for reviews/classification) or 'GENERAL'."
     )

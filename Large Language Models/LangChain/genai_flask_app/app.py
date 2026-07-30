@@ -41,8 +41,11 @@ def generate():
 
     try:
         model_selection_prompt = (
-            "You are an AI router. Analyze the user request and select the model, mode, and schema configuration "
-            "that strictly adheres to the requested output format and task requirements."
+            "You are a strict request classifier and router. Analyze the user message and select the proper mode:\n\n"
+            "Classification Priority:\n"
+            "1. TOOL_USAGE: Select if the input contains math expressions (e.g. '6*4^3', '2+2', arithmetic), math questions, or text formatting commands. Set schema_type = null.\n"
+            "2. FORMATTED: Select ONLY if the user explicitly requests JSON output, sentiment analysis, or classification. Set schema_type to 'SENTIMENT' or 'GENERAL'.\n"
+            "3. SIMPLE: Select for standard Q&A and conversation. Set schema_type = null."
         )
 
         model_config: ModelSelection = get_ai_json_response(
@@ -85,12 +88,14 @@ def generate():
                 user_message,
                 rt
             )
-            if hasattr(json_res, 'response'):
-                response_text = json_res.response
+            if hasattr(json_res, 'model_dump_json'):
+                response_text = json_res.model_dump_json(indent=2)
             elif hasattr(json_res, 'model_dump'):
-                response_text = str(json_res.model_dump())
+                import json
+                response_text = json.dumps(json_res.model_dump(), indent=2)
             elif isinstance(json_res, dict):
-                response_text = json_res.get('response', str(json_res))
+                import json
+                response_text = json.dumps(json_res, indent=2)
             else:
                 response_text = str(json_res)
 
