@@ -5,7 +5,7 @@ HERMES_MODEL_ID = "hermes3:8b"
 
 # Llama 2 13b Model parameters
 LLAMA_PARAMETERS = {
-    "name": LLAMA_MODEL_ID,
+    "model": LLAMA_MODEL_ID,
     "num_predict": 200,
     "temperature": 0.5,
     "top_k": 6,
@@ -14,24 +14,24 @@ LLAMA_PARAMETERS = {
 
 # TinyLlama Model parameters
 TINYLLAMA_PARAMETERS = {
-    "name": TINYLLAMA_MODEL_ID,
+    "model": TINYLLAMA_MODEL_ID,
     "num_predict": 200,
     "temperature": 0.5,
-    "top_k": 3,
+    "top_k": 20,
     "top_p": 0.25,
 }
 
-HERMES_MODEL = {
-    "name": HERMES_MODEL_ID,
-    "reasoning": True,
+HERMES_PARAMETERS = {
+    "model": HERMES_MODEL_ID,
     "num_predict": 200,
-    "temperature": 0.5,
+    "temperature": 0.1,
     "top_k": 5,
     "top_p": 0.3,
 }
 
+# Dictionary to hold all model parameters
 PARAMETERS = {
     LLAMA_MODEL_ID: LLAMA_PARAMETERS,
     TINYLLAMA_MODEL_ID: TINYLLAMA_PARAMETERS,
-    HERMES_MODEL_ID: HERMES_MODEL
+    HERMES_MODEL_ID: HERMES_PARAMETERS
 }
