@@ -3,13 +3,8 @@ from typing import cast
 from langchain_core.prompts import PromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_core.output_parsers import JsonOutputParser
-from pydantic import BaseModel
 
-
-class CountryWithCapital(BaseModel):
-    country: str
-    capital: str
-
+from genai_flask_app.structures.country_with_capital import CountryWithCapital
 
 output_parser = JsonOutputParser(pydantic_object=CountryWithCapital)
 model = ChatOllama(model="llama3.2")
