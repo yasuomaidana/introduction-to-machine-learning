@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body class="font-ibm-plex">
+<div class="app-container">
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <h1 class="header-title">AI Assistant</h1>
+            <button id="clearBtn" class="clear-btn" style="display: none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m3 6 18 0"></path>
+                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                </svg>
+                Clear Chat
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <!-- Messages Area -->
+        <div class="messages-area">
+            <div class="messages-content">
+                <!-- Welcome Screen -->
+                <div id="welcomeScreen" class="welcome-screen">
+                    <div class="welcome-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="1.5">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                            <line x1="9" y1="9" x2="9.01" y2="9"/>
+                            <line x1="15" y1="9" x2="15.01" y2="9"/>
+                        </svg>
+                    </div>
+                    <h2 class="welcome-title">Welcome to AI Assistant</h2>
+                    <p class="welcome-text">Choose a model and start a conversation. I'm here to help with your
+                        questions and tasks.</p>
+                </div>
+
+                <!-- Messages Container -->
+                <div id="messagesContainer" class="messages-container"></div>
+
+                <!-- Loading Indicator -->
+                <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                    <div class="loading-bubble">
+                        <div class="loading-content">
+                            <div class="loading-dots">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <span class="loading-text">AI is thinking...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages End -->
+                <div id="messagesEnd"></div>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <div class="input-content">
+                <form id="chatForm" class="chat-form">
+                    <!-- Model Selection -->
+                    <div class="model-section">
+                        <span class="model-label">Model:</span>
+                        <div class="select-wrapper">
+                            <label for="modelSelect">Choose a model:</label>
+                            <select id="modelSelect" class="model-select">
+                                <option value="llama">Llama</option>
+                                <option value="granite">Granite</option>
+                                <option value="mistral">Mistral</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Message Input -->
+                    <div class="input-section">
+                        <div class="textarea-container">
+                            <label for="messageInput"></label>
+                            <textarea
+                                    id="messageInput"
+                                    class="message-textarea"
+                                    placeholder="Type your message... (Enter to send, Shift+Enter for new line)"
+                                    rows="1"
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" id="sendButton" class="send-button">
+                            <svg id="sendIcon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                            </svg>
+                            <span id="loadingSpinner" class="loading-spinner" style="display: none;">
+                                <span class="spinner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./static/script.js"></script>
+</body>
+</html>
