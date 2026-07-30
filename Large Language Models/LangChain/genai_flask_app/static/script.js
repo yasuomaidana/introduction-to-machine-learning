@@ -18,7 +18,7 @@ const loadingSpinner = document.getElementById('loadingSpinner');
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     // Set default model
-    modelSelect.value = 'llama3';
+    modelSelect.value = 'auto';
     
     // Setup event listeners
     setupEventListeners();
@@ -120,7 +120,7 @@ async function sendMessage(content, model) {
                 id: (Date.now() + 1).toString(),
                 content: data.response,
                 type: 'ai',
-                model: model,
+                model: data.model_used || model,
                 duration: data.duration,
                 timestamp: new Date()
             };
