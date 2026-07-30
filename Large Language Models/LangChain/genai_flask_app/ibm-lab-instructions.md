@@ -1,6 +1,7 @@
-::page{title="Build Your First GenAI Application The Right Way"}
+# "Build Your First GenAI Application The Right Way"
 
-![demo](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/TA4LkoCK7YtPp_xbBH4asg/genai-app-demo.gif) _you'll build the application pictured above!_
+![demo](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/TA4LkoCK7YtPp_xbBH4asg/genai-app-demo.gif) 
+you'll build the application pictured above!
 
 Build a smart AI-powered web application using Flask and cutting-edge language models! This hands-on project will teach you to create intelligent applications that generate structured responses and leverage enterprise-grade AI tools. You'll learn to integrate watsonx.ai, implement JSON parsing, and engineer prompts that deliver consistent, actionable results.
 
@@ -23,7 +24,7 @@ By the end of this project, you will be able to:
 -   Building GenAI applications the right way means thinking about code quality, testing, and maintainability from day one. IBM Bob is an AI coding assistant that helps you maintain these standards throughout development — generating clean code, suggesting improvements, and helping you ship production-quality GenAI apps faster. Get started with a free trial at [ibm.biz/snp-bob.](https://ibm.biz/snp-bob)
     
 
-::page{title="How Large Language Models Work"}
+## How Large Language Models Work
 
 Large Language Models are thinking machines that can understand and generate human language with incredible fluency. Unlike traditional software that follows rigid rules, LLMs learn patterns from vast amounts of text to develop an intuitive understanding of language, knowledge, and reasoning. Think of them as having read millions of books and learned to predict what comes next in any conversation.
 
@@ -67,7 +68,7 @@ During actual use, the trained model generates text one token at a time. It cons
 
 Through this process of learning from human text, these models develop something remarkably close to understanding. They learn not just to parrot back information, but to reason, create, and engage in sophisticated dialogue. While we're still trying to figure out the mysteries of how intelligence emerges from these mathematical structures, one thing is clear: we've created thinking partners that can augment human intelligence in extraordinary ways!
 
-::page{title="Setting Up Your Development Environment"}
+## Setting Up Your Development Environment
 
 Before we dive into development, let's set up your project environment in the Cloud IDE. This environment is based on Ubuntu 22.04 and provides all the tools you need to build your AI-driven Flask application.
 
@@ -106,25 +107,13 @@ This command installs `ibm-watsonx-ai` which has many watsonx.ai features. In th
 
 Now that your environment is set up, you're ready to start building your GenAI application!
 
-::page{title="Using the ibm-watsonx-ai Python Library"}
+## Using the ibm-watsonx-ai Python Library
 
 Let's make our very first call to one of IBM's latest models, ibm/granite-4-h-small. Feel free to try other models!
 
 Create the file `capital.py`:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/capital.py"}
+Open File `genai_flask_app/capital.py`
 
 Let's start by adding in imports:
 
@@ -196,7 +185,7 @@ Running this code you should get the expected answer:
 
 Great job - you've called your first LLM!
 
-::page{title="Trying Other LLMs"}
+## Trying Other LLMs
 
 There are numerous LLMs available from IBM and other providers, each with its own strengths and use cases. New models are constantly emerging, so it’s important to stay informed about the latest advancements in the field.
 
@@ -223,19 +212,7 @@ Now let's try and update our code using a different LLM model, `llama-4-maverick
 
 Make sure you still have `capital.py` open:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/capital.py"}
+Open File `genai_flask_app/capital.py`
 
 Now simply update the model from `ibm/granite-4-h-small` to `meta-llama/llama-4-maverick-17b-128e-instruct-fp8`. The new code should look like the following:
 
@@ -266,14 +243,14 @@ Try using different models and see what you come up with!
 
 Here's a list of some of the latest models available in WatsonX (as of June 11, 2026). Just replace the model\_id in the code with one of the ones below and run the program again!
 
-| Provider | Model ID | Use Cases | Context Length | Price USD per million tokens |
-|---|---|---|---|---|
-| IBM | ibm/granite-4-h-small | Q&A, summarization, classification, generation, extraction, RAG, coding, and multi-tool agentic workflows. | 128k | Input: 0.06 / Output: 0.25 |
-| Meta | meta-llama/llama-4-maverick-17b-128e-instruct-fp8 | Multimodal reasoning, long-context processing, code generation and analysis, multilingual operations (200 languages supported), STEM and logical reasoning. | 1M | Input: 0.35 / Output: 1.40 |
-| Mistral | mistralai/mistral-small-3-1-24b-instruct-2503 | Instruction following, conversational assistance, image understanding, function calling, multilingual Q&A, summarization, classification, generation, and RAG. | 128k | Input: 0.10 / Output: 0.30 |
-| Mistral | mistralai/mistral-medium-2505 | Programming, mathematical reasoning, long document understanding, summarization, dialogue, and multimodal (text + image) tasks. | 128k | Input: 0.40 / Output: 2.00 |
+| Provider | Model ID                                          | Use Cases                                                                                                                                                      | Context Length | Price USD per million tokens |
+|----------|---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|------------------------------|
+| IBM      | ibm/granite-4-h-small                             | Q&A, summarization, classification, generation, extraction, RAG, coding, and multi-tool agentic workflows.                                                     | 128k           | Input: 0.06 / Output: 0.25   |
+| Meta     | meta-llama/llama-4-maverick-17b-128e-instruct-fp8 | Multimodal reasoning, long-context processing, code generation and analysis, multilingual operations (200 languages supported), STEM and logical reasoning.    | 1M             | Input: 0.35 / Output: 1.40   |
+| Mistral  | mistralai/mistral-small-3-1-24b-instruct-2503     | Instruction following, conversational assistance, image understanding, function calling, multilingual Q&A, summarization, classification, generation, and RAG. | 128k           | Input: 0.10 / Output: 0.30   |
+| Mistral  | mistralai/mistral-medium-2505                     | Programming, mathematical reasoning, long document understanding, summarization, dialogue, and multimodal (text + image) tasks.                                | 128k           | Input: 0.40 / Output: 2.00   |
 
-::page{title="Special Tokens & Prompt Formatting"}
+## Special Tokens & Prompt Formatting
 
 We missed a very important step. Llama uses special tokens to improve its functionality, control, and adaptability across diverse tasks. Without special tokens, Llama’s responses can be unpredictable because it lacks the necessary cues to interpret the structure, context, or intent of the input. These tokens act as guides that tell the model how to respond.
 
@@ -317,7 +294,7 @@ In addition to prompt formatting, we need to understand the concept of roles (to
 | <\|user\|> | The query text to be answered. |
 | <\|assistant\|> | A cue at the end of the prompt that indicates that a generated answer is expected. |
 
-::page{title="Prompting with Special Tokens"}
+## Prompting with Special Tokens
 
 So let's update our code to use the aforementioned special tokens.
 
@@ -383,7 +360,7 @@ This kind of structure makes it much easier to integrate AI into applications �
 
 Managing prompts, roles, and output formatting manually can get messy fast. That’s where **LangChain** comes in.
 
-::page{title="What is LangChain?"}
+## What is LangChain?
 
 LangChain provides an abstraction layer over multiple language models, allowing developers to use a consistent API and set of tools to switch between or combine different models, depending on their needs. It includes built-in utilities for managing prompts, chaining responses, parsing outputs, and structuring conversations, making it a powerful toolkit for building sophisticated AI applications.
 
@@ -398,7 +375,7 @@ LangChain provides an abstraction layer over multiple language models, allowing 
 
 Using LangChain in a GenAI application enables developers to build robust, efficient, and maintainable AI solutions by simplifying the management of model interactions and ensuring that outputs are structured and reliable. As a result, LangChain empowers developers to focus on higher-level functionality, enhancing the overall performance and usability of AI-driven applications.
 
-::page{title="Creating Your Flask Application"}
+## Creating Your Flask Application
 
 Now that we understand our AI models, let's start by creating the backbone of your Flask application. We'll set up a basic structure that we'll enhance with AI capabilities in the following steps.
 
@@ -420,19 +397,7 @@ This command installs:
 
 Create a new file named `app.py`:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/app.py"}
+Open File `genai_flask_app/app.py`
 
 Add the following code to set up a basic Flask app:
 
@@ -466,7 +431,7 @@ Let's break down this code:
 
 You've set up the foundation of your GenAI application. In the next sections, we'll integrate AI capabilities and enhance its functionality.
 
-::page{title="Integrating AI Models with LangChain"}
+## Integrating AI Models with LangChain
 
 Now, let's integrate AI capabilities into your Flask application using the `langchain` library and various language models. We'll focus on creating a modular structure for easy maintenance and expansion.
 
@@ -474,19 +439,7 @@ Now, let's integrate AI capabilities into your Flask application using the `lang
 
 First, let's create a configuration file to store our model parameters and credentials. Create a new file named `config.py`:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/config.py"}
+Open File `genai_flask_app/config.py`
 
 Add the following code:
 
@@ -519,19 +472,7 @@ This configuration file centralizes our model settings, making it easier to mana
 
 Now, let's create a file to handle our AI model integration. Create a new file named `model.py`:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/model.py"}
+Open File `genai_flask_app/model.py`
 
 ```python
 from langchain_ibm import ChatWatsonx
@@ -635,25 +576,13 @@ Let's break down this code:
 
 This modular approach allows for easy addition of new models or modification of existing ones.
 
-::page{title="Sanity Check"}
+## Sanity Check
 
 That was a lot of code, before we move on, let's try running the code and see what we have. Let's give all our models a test run by calling them all together as a function.
 
 Create the file `llm_test.py`:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/llm_test.py"}
+Open File `genai_flask_app/llm_test.py`
 
 ```python
 from model import llama_response, granite_response, mistral_response
@@ -683,7 +612,7 @@ If everything went well, you should get an output similar to the following:
 
 > "" Llama Response: The capital of Canada is Ottawa. A cool fact about Ottawa is that it's home to the Rideau Canal, a UNESCO World Heritage Site and the oldest continuously operated canal in North America. During the winter months, the canal freezes over and becomes the world's largest naturally frozen ice skating rink, stretching 7.8 kilometers (4.8 miles) through the heart of the city. Granite Response: The capital of Canada is Ottawa. It's located on the south bank of the Ottawa River and is known for its historic architecture, museums, and vibrant cultural scene. A cool fact about Ottawa is that it's home to the world's largest indoor ice-skating rink, the Rideau Canal Skateway, which is also a UNESCO World Heritage Site. Mistral Response: The capital of Canada is Ottawa. A cool fact about Ottawa is that it is one of the coldest capitals in the world. During winter, temperatures can drop as low as -40°C (-40°F), making it a popular destination for winter sports and activities like ice skating on the Rideau Canal, which becomes the world's largest naturally frozen ice skating rink. ""
 
-::page{title="Setting up JSON outputs"}
+## Setting up JSON outputs
 
 There's an important step we need to address: making sure the AI’s output follows a well-defined format. This is essential for taking the output and seamlessly integrating it into other systems, like a website.
 
@@ -735,19 +664,7 @@ You can see that we add the `json_parser` to our chain and call `json_parser.get
 
 So let's add this to the chain! To do this we need to add`AIResponse`and`json_parser`to the top of`model.py`as well as adding adding another link to our chain object within `get_ai_response`. Your code should look like this:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/model.py"}
+Open File `genai_flask_app/model.py`
 
 ```python
 from langchain_ibm import WatsonxLLM
@@ -831,7 +748,7 @@ Now, let's practice enhancing our JSON structure. Your task is to add a new fiel
 <p>    In <code>model.py</code>, update the <code>AIResponse</code> class:</p><p>    <code>python     class AIResponse(BaseModel):         summary: str = Field(description="Summary of the user's message")         sentiment: int = Field(description="Sentiment score from 0 (negative) to 100 (positive)")         category: str = Field(description="Category of the inquiry (e.g., billing, technical, general)")         action: str = Field(description="Recommended action for the support rep")     </code></p>
 </details>
 
-::page{title="Enhancing Your Flask Application with AI Capabilities"}
+## Enhancing Your Flask Application with AI Capabilities
 
 Now that we have our AI models set up, let's integrate them into our Flask application.
 
@@ -839,19 +756,7 @@ Now that we have our AI models set up, let's integrate them into our Flask appli
 
 Let's update `app.py` to use these AI capabilities:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/app.py"}
+Open File `genai_flask_app/app.py`
 
 Update the content of `app.py` with:
 
@@ -918,19 +823,7 @@ This setup allows us to handle requests for different models and provides robust
 
 Create the file `templates/index.html`:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-::openFile{path="genai_flask_app/templates/index.html"}
+Open File `genai_flask_app/templates/index.html`
 
 Update the content of `templates/index.html` with:
 
@@ -1087,25 +980,13 @@ You should see output indicating that the Flask development server is running on
 
 The Flask application is now running locally on Cloud IDE. To access it click the following button:
 
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
 ::startApplication{port="5000" route="/" display="internal" name="Test your application"}
 
 Try this with different messages and models to see how the responses vary.
 
 Congratulations you've created your LLM-enabled Flask Application!
 
-::page{title="Conclusion and Next Steps"}
+## Conclusion and Next Steps
 
 Congratulations on completing this guided project! You've successfully built a backend for a GenAI application using Flask, integrated multiple AI models, and implemented structured JSON outputs for enhanced functionality.
 
