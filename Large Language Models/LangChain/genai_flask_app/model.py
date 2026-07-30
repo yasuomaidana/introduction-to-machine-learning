@@ -81,45 +81,60 @@ PROMPT_TEMPLATES_NO_PARSER = {
     for model_id, template in TEMPLATES.items()
 }
 
-# New prompt templates for the ReAct agent
+# ReAct prompt templates with correct role tag placement
+REACT_SYSTEM_INSTRUCTION = """{system_prompt}
+
+TOOLS:
+------
+You have access to the following tools:
+
+{tools}
+
+To use a tool, please use the following format:
+
+```
+Thought: Do I need to use a tool? Yes
+Action: the action to take, should be one of [{tool_names}]
+Action Input: the input to the action
+Observation: the result of the action
+```
+
+When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:
+
+```
+Thought: Do I need to use a tool? No
+Final Answer: [your response here]
+```"""
+
+REACT_LLAMA_TEMPLATE = f"""<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+{REACT_SYSTEM_INSTRUCTION}<|eot_id|><|start_header_id|>user<|end_header_id|>
+Begin!
+
+Question: {{input}}<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+Thought: {{agent_scratchpad}}"""
+
+REACT_HERMES_TEMPLATE = f"""<|im_start|>system
+{REACT_SYSTEM_INSTRUCTION}<|im_end|>
+<|im_start|>user
+Begin!
+
+Question: {{input}}<|im_end|>
+<|im_start|>assistant
+Thought: {{agent_scratchpad}}"""
+
+REACT_TINYLLAMA_TEMPLATE = f"""<|system|>
+{REACT_SYSTEM_INSTRUCTION}</s>
+<|user|>
+Begin!
+
+Question: {{input}}</s>
+<|assistant|>
+Thought: {{agent_scratchpad}}"""
+
 REACT_PROMPT_TEMPLATES = {
-    model_id: PromptTemplate.from_template(
-        template.format(
-            system_prompt='''
-    {system_prompt}
-
-    TOOLS:
-    ------
-    You have access to the following tools:
-
-    {tools}
-
-    To use a tool, please use the following format:
-
-    ```
-    Thought: Do I need to use a tool? Yes
-    Action: the action to take, should be one of [{tool_names}]
-    Action Input: the input to the action
-    Observation: the result of the action
-    ```
-
-    When you have a response to say to the Human, or if you do not need to use a tool, you MUST use the format:
-
-    ```
-    Thought: Do I need to use a tool? No
-    Final Answer: [your response here]
-    ```
-    ''',
-            user_prompt='''
-    Begin!
-    
-    Question: {input}
-    Thought:{agent_scratchpad}
-    ''',
-            format_prompt=""
-        )
-    )
-    for model_id, template in TEMPLATES.items()
+    LLAMA_MODEL_ID: PromptTemplate.from_template(REACT_LLAMA_TEMPLATE),
+    HERMES_MODEL_ID: PromptTemplate.from_template(REACT_HERMES_TEMPLATE),
+    TINYLLAMA_MODEL_ID: PromptTemplate.from_template(REACT_TINYLLAMA_TEMPLATE),
 }
 
 
@@ -159,7 +174,12 @@ def get_ai_json_response(model_id: str, system_prompt: str, user_prompt: str, js
         "user_prompt": user_prompt,
         "format_prompt": format_prompt
     })
-    return response
+    if isinstance(response, json_type):
+        return response
+
+    if isinstance(response, dict):
+        return json_type.model_validate(response)
+    raise TypeError(f"Expected dict or {json_type.__name__}, got {type(response).__name__}")
 
 
 def get_ai_tool_response(model_id: str, system_prompt: str, user_prompt: str, tools: list[Tool]):
@@ -182,7 +202,8 @@ def get_ai_tool_response(model_id: str, system_prompt: str, user_prompt: str, to
         tools=tools,
         verbose=False,
         handle_parsing_errors="Check your format! Ensure you use Action: <tool_name> and Action Input: <input>",
-        max_iterations=3
+        max_iterations=5,
+        early_stopping_method="generate"
     )
 
     # Invoke the agent
@@ -192,46 +213,3 @@ def get_ai_tool_response(model_id: str, system_prompt: str, user_prompt: str, to
         "tools": render_text_description(tools),
         "tool_names": ", ".join([t.name for t in tools])
     })
-
-
-def calculator(expression: str) -> str:
-    """A simple calculator for mathematical expressions.
-    Input  MUST be a simple math expression like '25 + 63' or '15 * 7'."""
-    try:
-        # HINT: Use Python's eval() function for simple calculations
-        return f"Result: {eval(expression.strip().strip("\"'`"))}"
-    except Exception as e:
-        return f"Error calculating: {str(e)}"
-
-
-def format_text(text: str) -> str:
-    """Format text to uppercase, lowercase, or title case.
-    Input MUST be in the exact format: 'format_type: text'
-    Examples: 'uppercase: hello world', 'titlecase: langchain is awesome'"""
-    try:
-        # Parse the input to get format type and text
-        # Your code here
-        if len(formatted := text.split(":")) > 1:
-            format_type, content = formatted[0].strip(), formatted[1].strip().lower()
-            if format_type == "uppercase":
-                return content.upper()
-            elif format_type == "lowercase":
-                return content.lower()
-            elif format_type == "titlecase":
-                return content.title()
-            else:
-                return f"Unknown format type: {format_type}"
-        else:
-            return f"Missing format. Example: titlecase: {text} -> {text.title()}"
-    except Exception as e:
-        return f"Error formatting text: {str(e)}"
-
-
-# Create Tool objects for our functions
-# HINT: Use the Tool class to wrap the functions
-tools_list = [
-    Tool(name="Calculator", func=calculator,
-         description="A simple calculator that can add, subtract, multiply, or divide two numbers."),
-    Tool(name="Text Formatter", func=format_text,
-         description="Format text to uppercase, lowercase, or title case.")
-]
